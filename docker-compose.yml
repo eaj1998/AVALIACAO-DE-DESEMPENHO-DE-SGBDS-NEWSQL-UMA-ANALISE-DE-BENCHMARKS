@@ -1,0 +1,34 @@
+services:
+  yugabytedb:
+    image: yugabytedb/yugabyte:2.25.0.0-b489
+    container_name: yugabytedb
+    ports:
+      - "5433:5433"  # PostgreSQL API
+      - "9042:9042"  # Cassandra API
+      - "7000:7000"  # Web UI
+      - "9100:9100"  # Monitoring
+    volumes:
+      - yugabyte_data:/var/lib/yugabyte
+    environment:
+      - YB_MASTER_FLAGS=--default_memory_limit_to_ram_ratio=0.3
+      - YB_TSERVER_FLAGS=--default_memory_limit_to_ram_ratio=0.3
+    command: ["/home/yugabyte/bin/yugabyted", "start", "--daemon=false"]
+    restart: unless-stopped
+
+  benchbase:
+    image: benchbase.azurecr.io/benchbase
+    container_name: benchbase    
+    depends_on:
+      - yugabytedb
+    environment:
+      - BENCHBASE_PROFILE=postgres
+    volumes:
+      - ./benchbase/results:/benchbase/results  # Mount local directory for results
+      - ./benchbase/config:/benchbase/config    # Mount local directory for config files
+      - ./benchbase/workloads:/benchbase/workloads  # Mount local directory for workload files
+      - ./script.sh:/benchbase/script.sh  # Mount the script file
+    command: ["sh", "/benchbase/script.sh"]  # Use `sh` to execute the script
+# 
+volumes:
+  yugabyte_data:
+    driver: local
