@@ -24,7 +24,7 @@ services:
       - BENCHBASE_PROFILE=postgres
     volumes:
       - ./benchbase/results:/benchbase/results  # Mount local directory for results
-      - ./benchbase/config:/benchbase/config    # Mount local directory for config files
+      - "C:/Estudo/TCC II/benchbase/config:/benchbase/config"    # Mount local directory for config files
       - ./benchbase/workloads:/benchbase/workloads  # Mount local directory for workload files
       - ./script.sh:/benchbase/script.sh  # Mount the script file
     command: ["sh", "/benchbase/script.sh"]  # Use `sh` to execute the script

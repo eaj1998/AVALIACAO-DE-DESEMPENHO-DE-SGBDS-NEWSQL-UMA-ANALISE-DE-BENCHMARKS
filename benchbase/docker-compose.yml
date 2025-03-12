@@ -1,0 +1,32 @@
+services:  
+  yugabytedb:
+    image: yugabytedb/yugabyte:latest
+    container_name: yugabytedb
+    ports:
+      - "5433:5433"  # YSQL
+      - "9042:9042"  # YCQL
+      - "7000:7000"  # Master UI
+      - "9000:9000"  # TServer UI
+      - "15433:15433"  # UI
+    command: ["bin/yugabyted", "start", "--daemon=false"]
+    restart: unless-stopped
+    networks:
+      - yugabyte-network
+  benchbase: 
+    image: benchbase.azurecr.io/benchbase
+    container_name: benchbase
+    volumes:
+      - ./config:/benchbase/config
+      - ./results:/benchbase/results
+    environment:
+      - BENCHBASE_PROFILE=postgres
+    depends_on:
+      - yugabytedb
+    command: 
+      - -c /benchbase/config/yugabyte_config.xml
+      - -b ycsb
+    networks:
+      - yugabyte-network
+networks:
+  yugabyte-network:
+    driver: bridge

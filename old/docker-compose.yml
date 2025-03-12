@@ -1,0 +1,36 @@
+services:
+  yugabytedb:
+    image: yugabytedb/yugabyte:latest
+    container_name: yugabytedb
+    ports:
+      - "5433:5433"  # YSQL
+      - "9042:9042"  # YCQL
+      - "7000:7000"  # Master UI
+      - "9000:9000"  # TServer UI
+    command: ["bin/yugabyted", "start", "--daemon=false"]
+    volumes:
+      - yugabyte_data:/var/lib/yugabyte
+    restart: unless-stopped
+
+  benchbase:
+    image: benchbase.azurecr.io/benchbase
+    container_name: benchbase
+    depends_on:
+      - yugabytedb
+    volumes:
+      - ./benchbase/config:/benchbase/config
+      - ./benchbase/results:/benchbase/results
+    command: ["/bin/bash", "-c", "java -jar benchbase.jar -b yugabyte -c config/yugabyte_config.xml"]
+    restart: unless-stopped
+
+volumes:
+  yugabyte_data:
+    driver: local
+
+# Uncomment the following lines for a multi-node YugabyteDB setup
+#  yugabytedb-node2:
+#    image: yugabytedb/yugabyte:latest
+#    container_name: yugabytedb-node2
+#    command: ["bin/yugabyted", "start", "--join=yugabytedb"]
+#    depends_on:
+#      - yugabytedb
