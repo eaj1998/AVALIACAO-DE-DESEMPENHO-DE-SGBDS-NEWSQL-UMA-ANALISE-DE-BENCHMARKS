@@ -15,6 +15,7 @@ services:
   benchbase: 
     image: benchbase.azurecr.io/benchbase
     container_name: benchbase
+    user: root
     volumes:
       - ./config:/benchbase/config
       - ./results:/benchbase/results
@@ -23,8 +24,9 @@ services:
     depends_on:
       - yugabytedb
     command: 
-      - -c /benchbase/config/yugabyte_config.xml
-      - -b ycsb
+      - -c /benchbase/config/yugabyte_seats_config.xml
+      - -b seats
+      - --create=true --load=true --execute=true
     networks:
       - yugabyte-network
 networks:
