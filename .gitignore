@@ -1,3 +1,5 @@
-benchbase/results/*
-benchbase/data/*
-benchbase/logs/*
+cockroach/benchbase/results/*
+yugabyte/benchbase/results/*
+tidb/benchbase/results/*
+tidb/benchbase/data/*
+tidb/benchbase/logs/*

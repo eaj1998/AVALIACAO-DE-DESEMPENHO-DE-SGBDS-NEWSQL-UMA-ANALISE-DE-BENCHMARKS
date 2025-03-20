@@ -1,0 +1,35 @@
+services:
+  cockroachdb:
+    image: cockroachdb/cockroach:latest
+    container_name: cockroach-single
+    restart: unless-stopped
+    ports:
+      - "26257:26257" # Porta do banco
+      - "8080:8080"   # UI Web
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+    command: start-single-node --insecure
+    networks:
+      - cockroach-net
+  benchbase: 
+      image: benchbase.azurecr.io/benchbase
+      container_name: benchbase
+      user: root
+      volumes:
+        - ./config:/benchbase/config
+        - ./results:/benchbase/results
+      environment:
+        - BENCHBASE_PROFILE=cockroachdb
+      depends_on:
+        - cockroachdb
+      command: 
+        - -c /benchbase/config/cockroach_seats_config.xml
+        - -b seats
+        - --create=true --load=true --execute=true
+      networks:
+        - cockroach-net
+volumes:
+  cockroach-data:
+networks:
+  cockroach-net:
+    driver: bridge
