@@ -68,7 +68,3 @@ Feel free to contribute to this project by:
 2. Improving existing benchmark configurations
 3. Adding documentation
 4. Reporting issues
-
-## License
-
-[Add your license information here]
