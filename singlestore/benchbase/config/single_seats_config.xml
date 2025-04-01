@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<parameters>
+    <!-- Connection details -->
+    <type>MARIADB</type>
+    <driver>org.mariadb.jdbc.Driver</driver>
+    <url>jdbc:mariadb://svc-3482219c-a389-4079-b18b-d50662524e8a-shared-dml.aws-virginia-6.svc.singlestore.com:3333/benchbase?sessionVariables=sql_mode='ANSI'&amp;sslMode=REQUIRED&amp;serverSslCert=/config/singlestore_bundle.pem&amp;useServerPrepStmts=true&amp;cachePrepStmts=true&amp;prepStmtCacheSize=250&amp;prepStmtCacheSqlLimit=2048</url>
+    <username>edipoa</username>
+    <password>jAmmUJ0vUuznIP2W4DIDKyMK6O2EeSBL</password>
+    
+    <!-- Connection properties -->
+    <connectionProps>
+        <property name="reconnectOnConnectionFailure" value="true"/>
+        <!-- Additional SingleStore optimizations -->
+        <property name="allowMultiQueries" value="true"/>
+        <property name="rewriteBatchedStatements" value="true"/>
+    </connectionProps>
+    
+    <isolation>TRANSACTION_SERIALIZABLE</isolation>
+    <batchsize>128</batchsize>
+
+    <!-- Scalefactor -->
+    <scalefactor>1</scalefactor>
+
+    <!-- The workload -->
+    <terminals>1</terminals>
+    <works>
+        <work>
+            <time>60</time>
+            <rate>10000</rate>
+            <weights>10, 10, 35, 20, 10, 15</weights>
+        </work>
+    </works>
+
+    <!-- SEATS Procedures declaration -->
+    <transactiontypes>
+        <transactiontype>
+            <name>DeleteReservation</name>
+        </transactiontype>
+        <transactiontype>
+            <name>FindFlights</name>
+        </transactiontype>
+        <transactiontype>
+            <name>FindOpenSeats</name>
+        </transactiontype>
+        <transactiontype>
+            <name>NewReservation</name>
+        </transactiontype>
+        <transactiontype>
+            <name>UpdateCustomer</name>
+        </transactiontype>
+        <transactiontype>
+            <name>UpdateReservation</name>
+        </transactiontype>
+    </transactiontypes>
+</parameters>

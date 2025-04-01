@@ -1,0 +1,14 @@
+services:
+  benchbase:
+    image: benchbase.azurecr.io/benchbase
+    container_name: benchbase
+    user: root
+    volumes:
+      - ./config:/benchbase/config
+      - ./results:/benchbase/results
+    environment:
+      - BENCHBASE_PROFILE=mariadb    
+    command: >
+      -c /benchbase/config/single_seats_config.xml
+      -b seats
+      --create=true --load=true --execute=true    
