@@ -1,6 +1,6 @@
-cockroach/benchbase/results/*
-yugabyte/benchbase/results/*
-singlestore/benchbase/results/*
-tidb/benchbase/results/*
+#cockroach/benchbase/results/*
+#yugabyte/benchbase/results/*
+#singlestore/benchbase/results/*
+#tidb/benchbase/results/*
 tidb/benchbase/data/*
 tidb/benchbase/logs/*

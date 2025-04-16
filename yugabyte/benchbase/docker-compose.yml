@@ -52,8 +52,8 @@ services:
       - yugabytedb-2
       - yugabytedb-3
     command: 
-      - -c /benchbase/config/yugabyte_seats_config.xml
-      - -b seats
+      - -c /benchbase/config/yugabyte_ycsb_config.xml
+      - -b ycsb
       - --create=true --load=true --execute=true
     networks:
       - yugabyte-network
