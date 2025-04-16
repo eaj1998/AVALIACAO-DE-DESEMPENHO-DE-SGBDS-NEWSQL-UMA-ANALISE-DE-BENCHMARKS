@@ -1,14 +1,38 @@
 services:
-  cockroachdb:
+  cockroachdb1:
     image: cockroachdb/cockroach:latest
-    container_name: cockroach-single
+    container_name: cockroachdb1
     restart: unless-stopped
     ports:
       - "26257:26257" # Porta do banco
-      - "8080:8080"   # UI Web
+      # - "8080:8080"   # UI Web
     volumes:
-      - cockroach-data:/cockroach/cockroach-data
-    command: start-single-node --insecure
+      - cockroach-data:/cockroach/cockroach-data1
+    command: start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3 --advertise-addr=cockroachdb1
+    networks:
+      - cockroach-net
+  cockroachdb2:
+    image: cockroachdb/cockroach:latest
+    container_name: cockroachdb2
+    restart: unless-stopped
+    ports:
+      - "26258:26257" # Porta do banco
+      # - "8081:8080"   # UI Web
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data2
+    command: start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3 --advertise-addr=cockroachdb2    
+    networks:
+      - cockroach-net
+  cockroachdb3:
+    image: cockroachdb/cockroach:latest
+    container_name: cockroachdb3
+    restart: unless-stopped
+    ports:
+      - "26259:26257" # Porta do banco
+      # - "8080:8080"   # UI Web
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data3
+    command: start --insecure --join=cockroachdb1,cockroachdb2,cockroachdb3 --advertise-addr=cockroachdb3
     networks:
       - cockroach-net
   benchbase: 
@@ -21,7 +45,9 @@ services:
       environment:
         - BENCHBASE_PROFILE=cockroachdb
       depends_on:
-        - cockroachdb
+        - cockroachdb1
+        - cockroachdb2
+        - cockroachdb3
       command: 
         - -c /benchbase/config/cockroach_seats_config.xml
         - -b seats

@@ -4,7 +4,7 @@
     <!-- Connection details -->
     <type>COCKROACHDB</type>
     <driver>org.postgresql.Driver</driver>
-    <url>jdbc:postgresql://172.19.0.2:26257/benchbase</url>
+    <url>jdbc:postgresql://172.18.0.4:26257/benchbase</url>
     <username>root</username>
     <password></password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
@@ -12,13 +12,13 @@
     <batchsize>128</batchsize>
 
     <!-- Scalefactor in SEATS scales by *1000 the number of customers-->
-    <scalefactor>1</scalefactor>
+    <scalefactor>2</scalefactor>
 
     <!-- The workload -->
-    <terminals>1</terminals>
+    <terminals>20</terminals>
     <works>
         <work>
-            <time>300</time>
+            <time>60</time>
             <rate>10000</rate>
             <weights>10, 10, 35, 20, 10, 15</weights>
         </work>
