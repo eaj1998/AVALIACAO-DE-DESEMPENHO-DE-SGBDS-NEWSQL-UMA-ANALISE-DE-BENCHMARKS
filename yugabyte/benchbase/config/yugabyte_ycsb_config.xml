@@ -4,7 +4,7 @@
     <!-- Connection details -->
     <type>POSTGRES</type>
     <driver>org.postgresql.Driver</driver>
-    <url>jdbc:postgresql://172.18.0.2:5433/yugabyte</url>
+    <url>jdbc:postgresql://172.17.0.3:5433/yugabyte</url>
     <username>yugabyte</username>
     <password>yugabyte</password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
@@ -12,7 +12,7 @@
     <batchsize>128</batchsize>
 
     <!-- Scalefactor in YCSB is *1000 the number of rows in the USERTABLE-->
-    <scalefactor>1</scalefactor>
+    <scalefactor>2</scalefactor>
     
     <!-- Optional: Override the field size for each column in USERTABLE -->
     <!-- <fieldSize>8</fieldSize> -->
@@ -21,7 +21,7 @@
     <!-- <skewFactor>0.99</skewFactor> -->
 
     <!-- The workload -->
-    <terminals>1</terminals>
+    <terminals>20</terminals>
     <works>
         <work>
             <time>60</time>

@@ -4,7 +4,7 @@
     <!-- Connection details -->
   <type>POSTGRES</type>
     <driver>org.postgresql.Driver</driver>
-    <url>jdbc:postgresql://172.20.0.2:5433/yugabyte</url>
+    <url>jdbc:postgresql://172.17.0.3:5433/yugabyte</url>
     <username>yugabyte</username>
     <password>yugabyte</password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
@@ -12,10 +12,10 @@
     <batchsize>128</batchsize>
 
     <!-- Scalefactor in SEATS scales by *1000 the number of customers-->
-    <scalefactor>1</scalefactor>
+    <scalefactor>2</scalefactor>
 
     <!-- The workload -->
-    <terminals>1</terminals>
+    <terminals>20</terminals>
     <works>
         <work>
             <time>60</time>
