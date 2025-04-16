@@ -4,7 +4,7 @@
     <!-- Connection details -->
     <type>COCKROACHDB</type>
     <driver>org.postgresql.Driver</driver>
-    <url>jdbc:postgresql://172.18.0.4:26257/benchbase</url>
+    <url>jdbc:postgresql://172.30.0.4:26257/benchbase</url>
     <username>root</username>
     <password></password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
