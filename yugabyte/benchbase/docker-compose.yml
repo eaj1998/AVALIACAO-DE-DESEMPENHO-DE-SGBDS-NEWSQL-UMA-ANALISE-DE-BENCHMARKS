@@ -6,7 +6,7 @@ services:
       - "5433:5433"  # YSQL
       - "9042:9042"  # YCQL
       - "7000:7000"  # Master UI
-      - "9000:9000"  # TServer UI
+      # - "9000:9000"  # TServer UI
       - "15433:15433"  # UI
     command: ["bin/yugabyted", "start", "--daemon=false"]
     restart: unless-stopped
