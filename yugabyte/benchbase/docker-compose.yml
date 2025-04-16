@@ -1,17 +1,43 @@
 services:  
-  yugabytedb:
+  yugabytedb-1:
     image: yugabytedb/yugabyte:latest
-    container_name: yugabytedb
+    container_name: yugabytedb-1
     ports:
       - "5433:5433"  # YSQL
       - "9042:9042"  # YCQL
-      - "7000:7000"  # Master UI
+      - "7001:7000"  # Master UI
       # - "9000:9000"  # TServer UI
       - "15433:15433"  # UI
     command: ["bin/yugabyted", "start", "--daemon=false"]
     restart: unless-stopped
     networks:
       - yugabyte-network
+  yugabytedb-2:
+    image: yugabytedb/yugabyte:latest
+    container_name: yugabytedb-2
+    ports:
+      - "5434:5433"  # YSQL
+      - "9043:9042"  # YCQL
+      - "7002:7000"  # Master UI
+      # - "9000:9000"  # TServer UI
+      # - "15433:15433"  # UI
+    command: ["bin/yugabyted", "start", "--daemon=false"]
+    restart: unless-stopped
+    networks:
+    - yugabyte-network
+  yugabytedb-3:
+    image: yugabytedb/yugabyte:latest
+    container_name: yugabytedb-3
+    ports:
+      - "5435:5433"  # YSQL
+      - "9044:9042"  # YCQL
+      - "7003:7000"  # Master UI
+      # - "9000:9000"  # TServer UI
+      # - "15433:15433"  # UI
+    command: ["bin/yugabyted", "start", "--daemon=false"]
+    restart: unless-stopped
+    networks:
+    - yugabyte-network
   benchbase: 
     image: benchbase.azurecr.io/benchbase
     container_name: benchbase
@@ -22,7 +48,9 @@ services:
     environment:
       - BENCHBASE_PROFILE=postgres
     depends_on:
-      - yugabytedb
+      - yugabytedb-1
+      - yugabytedb-2
+      - yugabytedb-3
     command: 
       - -c /benchbase/config/yugabyte_seats_config.xml
       - -b seats
