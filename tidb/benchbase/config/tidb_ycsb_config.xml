@@ -4,7 +4,7 @@
     <!-- Connection details -->
     <type>MYSQL</type>
     <driver>com.mysql.cj.jdbc.Driver</driver>
-    <url>jdbc:mysql://172.21.0.8:4000/benchbase?rewriteBatchedStatements=true&amp;allowPublicKeyRetrieval=True&amp;sslMode=DISABLED</url>
+    <url>jdbc:mysql://192.168.80.9:4000/benchbase?rewriteBatchedStatements=true&amp;allowPublicKeyRetrieval=True&amp;sslMode=DISABLED</url>
     <username>root</username>
     <password></password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
@@ -12,13 +12,13 @@
     <batchsize>128</batchsize>
 
     <!-- Scalefactor in YCSB is *1000 the number of rows in the USERTABLE-->
-    <scalefactor>1</scalefactor>
+    <scalefactor>2</scalefactor>
     
     <!-- Optional: Override the zipfian constant to modify the skew -->
     <!-- <skewFactor>0.99</skewFactor> -->
 
     <!-- The workload -->
-    <terminals>1</terminals>
+    <terminals>20</terminals>
     <works>
         <work>
             <time>60</time>
