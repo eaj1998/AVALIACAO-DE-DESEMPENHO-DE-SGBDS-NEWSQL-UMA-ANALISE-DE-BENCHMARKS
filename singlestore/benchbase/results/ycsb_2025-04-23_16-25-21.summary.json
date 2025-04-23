@@ -1,0 +1,26 @@
+{
+ "Start timestamp (milliseconds)": 1745425458938,
+ "Current Timestamp (milliseconds)": 1745425521458,
+ "Elapsed Time (nanoseconds)": 60000055999,
+ "DBMS Type": "MARIADB",
+ "DBMS Version": "5.7.32",
+ "Benchmark Type": "ycsb",
+ "Final State": "EXIT",
+ "Measured Requests": 3192,
+ "isolation": "TRANSACTION_SERIALIZABLE",
+ "scalefactor": "2",
+ "terminals": "20",
+ "Latency Distribution": {
+  "95th Percentile Latency (microseconds)": 547020,
+  "Maximum Latency (microseconds)": 3182177,
+  "Median Latency (microseconds)": 316154,
+  "Minimum Latency (microseconds)": 309389,
+  "25th Percentile Latency (microseconds)": 312246,
+  "90th Percentile Latency (microseconds)": 472046,
+  "99th Percentile Latency (microseconds)": 1279747,
+  "75th Percentile Latency (microseconds)": 404340,
+  "Average Latency (microseconds)": 373679
+ },
+ "Throughput (requests/second)": 53.199950347599675,
+ "Goodput (requests/second)": 53.53328336982774
+}

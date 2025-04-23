@@ -9,6 +9,6 @@ services:
     environment:
       - BENCHBASE_PROFILE=mariadb    
     command: >
-      -c /benchbase/config/single_seats_config.xml
-      -b seats
+      -c /benchbase/config/single_ycsb_config.xml
+      -b ycsb
       --create=true --load=true --execute=true    
