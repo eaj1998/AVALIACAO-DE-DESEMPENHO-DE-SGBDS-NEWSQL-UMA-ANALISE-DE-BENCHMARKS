@@ -1,0 +1,26 @@
+{
+ "Start timestamp (milliseconds)": 1750887895792,
+ "Current Timestamp (milliseconds)": 1750887958282,
+ "Elapsed Time (nanoseconds)": 60000099551,
+ "DBMS Type": "POSTGRES",
+ "DBMS Version": "PostgreSQL 15.2-YB-2.25.1.0-b0 on x86_64-pc-linux-gnu, compiled by clang version 17.0.6 (https://github.com/yugabyte/llvm-project.git 9b881774e40024e901fc6f3d313607b071c08631), 64-bit",
+ "Benchmark Type": "ycsb",
+ "Final State": "EXIT",
+ "Measured Requests": 39380,
+ "isolation": "TRANSACTION_SERIALIZABLE",
+ "scalefactor": "2",
+ "terminals": "50",
+ "Latency Distribution": {
+  "95th Percentile Latency (microseconds)": 324160,
+  "Maximum Latency (microseconds)": 1083210,
+  "Median Latency (microseconds)": 5992,
+  "Minimum Latency (microseconds)": 2742,
+  "25th Percentile Latency (microseconds)": 4063,
+  "90th Percentile Latency (microseconds)": 241466,
+  "99th Percentile Latency (microseconds)": 529947,
+  "75th Percentile Latency (microseconds)": 106203,
+  "Average Latency (microseconds)": 76078
+ },
+ "Throughput (requests/second)": 656.3322443578123,
+ "Goodput (requests/second)": 657.1655763084952
+}
