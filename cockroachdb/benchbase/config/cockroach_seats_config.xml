@@ -4,7 +4,7 @@
     <!-- Connection details -->
     <type>COCKROACHDB</type>
     <driver>org.postgresql.Driver</driver>
-    <url>jdbc:postgresql://172.30.0.4:26257/benchbase</url>
+    <url>jdbc:postgresql://192.168.48.1:26257/benchbase</url>
     <username>root</username>
     <password></password>
     <reconnectOnConnectionFailure>true</reconnectOnConnectionFailure>
@@ -15,7 +15,7 @@
     <scalefactor>2</scalefactor>
 
     <!-- The workload -->
-    <terminals>20</terminals>
+    <terminals>50</terminals>
     <works>
         <work>
             <time>60</time>

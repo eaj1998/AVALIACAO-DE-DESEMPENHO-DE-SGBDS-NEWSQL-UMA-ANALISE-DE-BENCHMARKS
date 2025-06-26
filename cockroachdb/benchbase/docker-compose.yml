@@ -49,8 +49,8 @@ services:
         - cockroachdb2
         - cockroachdb3
       command: 
-        - -c /benchbase/config/cockroach_ycsb_config.xml
-        - -b ycsb
+        - -c /benchbase/config/cockroach_seats_config.xml
+        - -b seats
         - --create=true --load=true --execute=true
       networks:
         - cockroach-net
