@@ -1,0 +1,26 @@
+{
+ "Start timestamp (milliseconds)": 1750960590646,
+ "Current Timestamp (milliseconds)": 1750960653594,
+ "Elapsed Time (nanoseconds)": 60000034801,
+ "DBMS Type": "MYSQL",
+ "DBMS Version": "8.0.11-TiDB-v7.5.1",
+ "Benchmark Type": "seats",
+ "Final State": "EXIT",
+ "Measured Requests": 50448,
+ "isolation": "TRANSACTION_REPEATABLE_READ",
+ "scalefactor": "2",
+ "terminals": "100",
+ "Latency Distribution": {
+  "95th Percentile Latency (microseconds)": 301569,
+  "Maximum Latency (microseconds)": 2871608,
+  "Median Latency (microseconds)": 114604,
+  "Minimum Latency (microseconds)": 544,
+  "25th Percentile Latency (microseconds)": 18884,
+  "90th Percentile Latency (microseconds)": 253956,
+  "99th Percentile Latency (microseconds)": 453149,
+  "75th Percentile Latency (microseconds)": 178433,
+  "Average Latency (microseconds)": 118585
+ },
+ "Throughput (requests/second)": 840.7995123222696,
+ "Goodput (requests/second)": 828.282852915474
+}
