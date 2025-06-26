@@ -1,0 +1,17 @@
+{
+ "ddl_schema_version": "262",
+ "last_plan_binding_update_time": "0000-00-00 00:00:00",
+ "server_id": "8c46b6d4-29f7-4ec3-977d-b07df73ee214",
+ "ssl_cipher": "",
+ "ssl_cipher_list": "",
+ "ssl_server_not_after": "",
+ "ssl_server_not_before": "",
+ "ssl_verify_mode": "0",
+ "ssl_version": "",
+ "tidb_gc_last_run_time": "20250626-17:30:10.406 +0000",
+ "tidb_gc_leader_desc": "host:23fb293ce677, pid:1, start at 2025-06-26 17:14:10.106470544 +0000 UTC m=+13.054408119",
+ "tidb_gc_leader_lease": "20250626-17:38:10.339 +0000",
+ "tidb_gc_leader_uuid": "65eb4ee2ce40001",
+ "tidb_gc_safe_point": "20250626-17:20:10.406 +0000",
+ "uptime": "1355"
+}
